@@ -24,7 +24,20 @@ export default function App() {
             },
           }}
         />
-        <Stack.Screen name="Feed" component={Feed} />
+        <Stack.Screen
+          name="Feed"
+          component={Feed}
+          options={{
+            title: "Feed",
+            headerStyle: {
+              backgroundColor: "#F0B440",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

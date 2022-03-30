@@ -9,7 +9,7 @@ export default function Home({ navigation }) {
         {/* Title card */}
         <View style={styles.textcontainer}>
           <Text style={styles.welcome}>Welcome to</Text>
-          <Text style={styles.title}>PlantMate</Text>
+          <Text style={styles.title}>Plant Mate</Text>
         </View>
         {/* Text Body */}
         <View>
