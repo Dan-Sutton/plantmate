@@ -4,17 +4,25 @@ import {
   View,
   Text,
   KeyboardAvoidingView,
+  ScrollView,
 } from "react-native";
+import { backgroundColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 import Notification from "../components/Notification";
+import { data } from "../data";
 
 function Feed({ route }) {
   return (
-    <View style={styles.container}>
-      <View style={styles.items}>
-        <Notification text={"Spider Plant"} />
-        <Notification text={"Devil's Ivy"} />
-      </View>
-    </View>
+    <>
+      <ScrollView style={{ backgroundColor: "#4D794E" }}>
+        <View style={styles.container}>
+          <View style={styles.items}>
+            {data.map((item, index) => {
+              return <Notification key={index} name={item.name} />;
+            })}
+          </View>
+        </View>
+      </ScrollView>
+    </>
   );
 }
 

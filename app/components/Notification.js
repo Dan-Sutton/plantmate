@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 
-function Notification({ text }) {
+function Notification({ name }) {
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
         <View style={styles.square}></View>
-        <Text style={styles.itemText}>{text}</Text>
+        <Text style={styles.itemText}>{name}</Text>
       </View>
       <View style={styles.circular}></View>
     </View>
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 15,
     borderRadius: 10,
+    height: 70,
     width: "80%",
     flexDirection: "row",
     alignItems: "center",
