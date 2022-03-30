@@ -5,10 +5,12 @@ import {
   Text,
   KeyboardAvoidingView,
   ScrollView,
+  TouchableOpacity,
+  Image,
 } from "react-native";
-import { backgroundColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 import Notification from "../components/Notification";
 import { data } from "../data";
+import button from "../images/button.png";
 
 function Feed({ route }) {
   return (
@@ -27,6 +29,9 @@ function Feed({ route }) {
               );
             })}
           </View>
+          <TouchableOpacity style={styles.add}>
+            <Image style={styles.button} source={button}></Image>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </>
@@ -45,5 +50,19 @@ const styles = StyleSheet.create({
   items: {
     width: "100%",
     alignItems: "center",
+  },
+  add: {
+    backgroundColor: "#F0B440",
+    height: 80,
+    width: 80,
+    borderRadius: 50,
+    marginBottom: 20,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  button: {
+    height: 80,
+    width: 80,
+    opacity: 0.8,
   },
 });
