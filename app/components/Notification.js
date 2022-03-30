@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 
-function Notification({ name }) {
+function Notification({ name, image, place }) {
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
-        <View style={styles.square}></View>
+        <Image style={styles.image} source={{ uri: image }} />
         <Text style={styles.itemText}>{name}</Text>
       </View>
       <View style={styles.circular}></View>
@@ -20,19 +20,18 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 15,
     borderRadius: 10,
-    height: 70,
-    width: "80%",
+    height: 90,
+    width: "85%",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: 20,
   },
   itemLeft: { flexDirection: "row", alignItems: "center", flexWrap: "wrap" },
-  square: {
-    width: 24,
-    height: 24,
+  image: {
+    width: 70,
+    height: 70,
     backgroundColor: "blue",
-    opacity: 0.4,
     borderRadius: 5,
     marginRight: 15,
   },
