@@ -1,10 +1,19 @@
-import { StyleSheet, Button, View, Text } from "react-native";
+import {
+  StyleSheet,
+  Button,
+  View,
+  Text,
+  KeyboardAvoidingView,
+} from "react-native";
 import Notification from "../components/Notification";
 
 function Feed({ route }) {
   return (
     <View style={styles.container}>
-      <Notification text={"Spider Plant"} />
+      <View style={styles.items}>
+        <Notification text={"Spider Plant"} />
+        <Notification text={"Devil's Ivy"} />
+      </View>
     </View>
   );
 }
@@ -17,5 +26,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#4D794E",
     alignItems: "center",
     paddingTop: 20,
+  },
+  items: {
+    width: "100%",
+    alignItems: "center",
   },
 });
