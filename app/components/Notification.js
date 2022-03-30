@@ -6,7 +6,10 @@ function Notification({ name, image, place }) {
     <View style={styles.item}>
       <View style={styles.itemLeft}>
         <Image style={styles.image} source={{ uri: image }} />
-        <Text style={styles.itemText}>{name}</Text>
+        <View style={styles.textBody}>
+          <Text style={styles.name}>{name}</Text>
+          <Text style={styles.place}>{place}</Text>
+        </View>
       </View>
       <View style={styles.circular}></View>
     </View>
@@ -32,10 +35,11 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     backgroundColor: "blue",
-    borderRadius: 5,
+    borderRadius: 50,
     marginRight: 15,
   },
-  itemText: { maxWidth: "80%" },
+  textBody: {},
+  name: { fontSize: 20, fontWeight: "bold", marginBottom: 6 },
   circular: {
     width: 12,
     height: 12,
@@ -43,4 +47,5 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 5,
   },
+  place: {},
 });

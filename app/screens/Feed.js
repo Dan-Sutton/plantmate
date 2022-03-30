@@ -18,7 +18,12 @@ function Feed({ route }) {
           <View style={styles.items}>
             {data.map((item, index) => {
               return (
-                <Notification key={index} name={item.name} image={item.image} />
+                <Notification
+                  key={index}
+                  name={item.name}
+                  image={item.image}
+                  place={item.place}
+                />
               );
             })}
           </View>
