@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   StyleSheet,
   Button,
@@ -13,18 +14,31 @@ import { data } from "../data";
 import button from "../images/button.png";
 
 function Feed({ route }) {
+  const [notData, setData] = useState(data);
+
+  function deleteItem(id) {
+    const notDataCopy = [...notData];
+    const index = notDataCopy.findIndex((item) => {
+      return item.id === id;
+    });
+    notDataCopy.splice(index, 1);
+    setData(notDataCopy);
+  }
+
   return (
     <>
       <ScrollView style={{ backgroundColor: "#4D794E" }}>
         <View style={styles.container}>
           <View style={styles.items}>
-            {data.map((item, index) => {
+            {notData.map((item, index) => {
               return (
                 <Notification
+                  id={item.id}
                   key={index}
                   name={item.name}
                   image={item.image}
                   place={item.place}
+                  deleteItem={deleteItem}
                 />
               );
             })}

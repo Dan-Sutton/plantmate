@@ -1,7 +1,8 @@
 import React from "react";
 import { View, Image, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { data } from "../data";
 
-function Notification({ name, image, place }) {
+function Notification({ id, name, image, place, deleteItem }) {
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
@@ -11,7 +12,13 @@ function Notification({ name, image, place }) {
           <Text style={styles.place}>{place}</Text>
         </View>
       </View>
-      <View style={styles.circular}></View>
+      <TouchableOpacity
+        onPress={() => {
+          deleteItem(id);
+        }}
+      >
+        <View style={styles.circular}></View>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -41,8 +48,9 @@ const styles = StyleSheet.create({
   textBody: {},
   name: { fontSize: 20, fontWeight: "bold", marginBottom: 6 },
   circular: {
-    width: 12,
-    height: 12,
+    width: 30,
+    height: 30,
+    marginRight: 10,
     borderColor: "blue",
     borderWidth: 2,
     borderRadius: 5,
