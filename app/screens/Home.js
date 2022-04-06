@@ -3,7 +3,6 @@ import { StyleSheet, Button, View, Text } from "react-native";
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-
       {/* welcome content */}
       <View style={styles.content}>
         {/* Title card */}
@@ -25,13 +24,13 @@ export default function Home({ navigation }) {
               title="Login"
               color="#4D794E"
               onPress={() => {
-                navigation.navigate("Feed", { text: 'this is a test!' });
+                navigation.navigate("Feed", { text: "this is a test!" });
               }}
             />
           </View>
 
           <Button
-            title="Sign Up"
+            title="Get Started"
             color="#F0B440"
             onPress={() => alert("You Clicked Login")}
           />
