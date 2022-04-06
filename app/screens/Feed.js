@@ -9,12 +9,19 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+import Modal from "react-native-modal";
 import Notification from "../components/Notification";
 import { data } from "../data";
 import button from "../images/button.png";
+import FormContent from "../components/FormContent";
 
 function Feed({ route }) {
   const [notData, setData] = useState(data);
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
 
   function deleteItem(id) {
     const notDataCopy = [...notData];
@@ -43,11 +50,20 @@ function Feed({ route }) {
               );
             })}
           </View>
-          <TouchableOpacity style={styles.add}>
+          <TouchableOpacity onPress={toggleModal} style={styles.add}>
             <Image style={styles.button} source={button}></Image>
           </TouchableOpacity>
         </View>
       </ScrollView>
+
+      <Modal backdropOpacity={0} isVisible={isModalVisible}>
+        <View style={styles.modal}>
+          <FormContent />
+
+          <Button title="CANCEL" onPress={toggleModal} />
+          <Button title="SUBMIT" onPress={toggleModal} />
+        </View>
+      </Modal>
     </>
   );
 }
@@ -78,5 +94,12 @@ const styles = StyleSheet.create({
     height: 80,
     width: 80,
     opacity: 0.8,
+  },
+
+  modal: {
+    borderRadius: 15,
+    padding: 40,
+    flex: 1,
+    backgroundColor: "white",
   },
 });
